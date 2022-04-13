@@ -1,14 +1,14 @@
 import React from "react";
-import "./Button.css";
+import styles from "./Button.module.css";
 const Button = (props) => {
   console.log(props);
   return (
     <button
+      className={styles.Button}
       style={{ backgroundColor: props.bgColor }}
       onClick={(evt) => {
         props.onButtonClicked("une valeur ou pas de valeur au choix");
       }}
-      className="Button"
     >
       {props.children}
     </button>
