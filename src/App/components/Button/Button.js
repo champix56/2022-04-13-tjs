@@ -6,7 +6,7 @@ const Button = (props) => {
   return (
     <button
       className={styles.Button}
-      style={{ backgroundColor: props.bgColor }}
+      style={{ backgroundColor: props.bgColor, color: props.color, ...props.style}}
       onClick={(evt) => {
         props.onButtonClicked("une valeur ou pas de valeur au choix");
       }}
@@ -20,6 +20,12 @@ Button.propTypes={
     children: PropTypes.any.isRequired,
     onButtonClicked: PropTypes.func.isRequired,
     bgColor: PropTypes.string,
-    type: PropTypes.string,
+    color: PropTypes.string,
+    type: PropTypes.string.isRequired,
+    style: PropTypes.object,
+}
+Button.defaultProps={
+    onButtonClicked: ()=>{console.log('click par def.');},
+    type: 'button',
 }
 export default Button;

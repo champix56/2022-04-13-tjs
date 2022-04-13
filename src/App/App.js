@@ -16,11 +16,12 @@ function App() {
         <img src="/img/ok_check.png" />
         <div style={{ display: "inline" }}>Mon text</div>
       </Button>
-      <Button>de lu</Button>
-      <Button>benjamin button</Button>
-      <Button>
+      <Button bgColor="MidnightBlue">de lu</Button>
+      <Button bgColor="grey" color="MidnightBlue">benjamin button</Button>
+      <Button color="MidnightBlue">
         <img src="/img/ok_check.png" />
       </Button>
+      <Button style={{textDecoration:'underline',fontSize:'48pt',color:'yellow'}}>Def. button</Button>
     </div>
   );
 }
