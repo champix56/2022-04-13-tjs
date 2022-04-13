@@ -16,6 +16,7 @@
     vertical-align: middle;
 }
 .Button img{
-    max-width: 32px;
-    max-height: 32px;
+    max-width: 28px;
+    max-height: 28px;
+    margin-right: 5px;
 }
