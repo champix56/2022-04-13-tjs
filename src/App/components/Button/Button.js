@@ -4,13 +4,13 @@ const Button = (props) => {
   console.log(props);
   return (
     <button
+      style={{ backgroundColor: props.bgColor }}
       onClick={(evt) => {
-        alert("button clicked");
-        console.log(evt);
+        props.onButtonClicked("une valeur ou pas de valeur au choix");
       }}
       className="Button"
     >
-      {props.text}
+      {props.children}
     </button>
   );
 };
