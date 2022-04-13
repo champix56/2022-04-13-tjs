@@ -10,6 +10,7 @@ const Button = (props) => {
       onClick={(evt) => {
         props.onButtonClicked("une valeur ou pas de valeur au choix");
       }}
+      type={props.type}
     >
       {props.children}
     </button>
