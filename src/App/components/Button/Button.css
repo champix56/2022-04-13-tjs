@@ -1,0 +1,14 @@
+.Button{
+    border-radius: 7px;
+    padding:10px 20px;
+    background-color: skyblue;
+    color: white;
+    font-weight: 900;
+    border:none;
+    box-shadow: 15px 15px 25px grey;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+.Button:hover{
+    box-shadow: 10px 10px 25px grey; 
+}

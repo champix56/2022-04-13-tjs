@@ -1,8 +1,8 @@
 import React from 'react'
-
+import './Button.css'
 const Button = (props)=>{
     console.log(props);
-    return <button>Demat</button>;
+    return <button className="Button">Demat</button>;
 }
 
 export default Button;
