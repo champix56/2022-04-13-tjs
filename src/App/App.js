@@ -7,11 +7,20 @@ function App() {
     <div className="App">
       DEMAT BREIZH
       <hr />
-      <Button text="Hello" />
-      <Button text="de lu" />
-      <Button text="benjamin button" />
-      <Button />
-
+      <Button
+        onButtonClicked={(unParam) => {
+          console.log(unParam);
+        }}
+        bgColor="tomato"
+      >
+        <img src="/img/ok_check.png" />
+        <div style={{ display: "inline" }}>Mon text</div>
+      </Button>
+      <Button>de lu</Button>
+      <Button>benjamin button</Button>
+      <Button>
+        <img src="/img/ok_check.png" />
+      </Button>
     </div>
   );
 }
