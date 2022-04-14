@@ -9,11 +9,11 @@ class App extends React.Component {
     this.state={counter:0,message:'hello'};
   }
   componentDidMount(){
-    console.log('le composant est chargé et operationnel');
+    //console.log('le composant est chargé et operationnel');
   }
   componentDidUpdate(prevProps,prevState){
-    console.log('les valeurs state apres changements prev->actual',prevState,this.state );
-    console.log('les valeurs props apres changements prev->actual',prevProps,this.props );
+    //console.log('les valeurs state apres changements prev->actual',prevState,this.state );
+    //console.log('les valeurs props apres changements prev->actual',prevProps,this.props );
   }
   render() {
     return (
@@ -23,7 +23,7 @@ class App extends React.Component {
         <Button
           onButtonClicked={(unParam) => {
             this.setState({counter:this.state.counter+1});
-            console.log(this.state.counter);
+            //console.log(this.state.counter);
           }}
           bgColor="tomato"
         >
