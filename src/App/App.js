@@ -29,6 +29,20 @@ class App extends Component {
           h: 315,
           name: "futurama slurm",
         },
+        {
+          id: 1,
+          url: "futurama_slurm.jpg",
+          w: 600,
+          h: 315,
+          name: "futurama slurm2",
+        },
+        {
+          id: 2,
+          url: "futurama_slurm.jpg",
+          w: 600,
+          h: 315,
+          name: "futurama slurm3",
+        },
       ],
     };
   }
