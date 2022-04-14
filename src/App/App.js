@@ -1,35 +1,19 @@
-import React from "react";
-import Button from "./components/ui/Button/Button";
-import "./App.css";
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    //init de LA valeur etatique 
-    this.state={counter:0,message:'hello'};
-  }
-  componentDidMount(){
-    //console.log('le composant est chargé et operationnel');
-  }
-  componentDidUpdate(prevProps,prevState){
-    //console.log('les valeurs state apres changements prev->actual',prevState,this.state );
-    //console.log('les valeurs props apres changements prev->actual',prevProps,this.props );
-  }
+import React, { Component } from "react";
+import FlexHLayout from "./components/layout/FlexHLayout/FlexHLayout";
+import FlexWLayout from "./components/layout/FlexWLayout/FlexWLayout";
+import './App.css'
+class App extends Component {
   render() {
     return (
-      <div className="App">
-        counter = {this.state.counter}
-        <hr />
-        <Button
-          onButtonClicked={(unParam) => {
-            this.setState({counter:this.state.counter+1});
-            //console.log(this.state.counter);
-          }}
-          bgColor="tomato"
-        >
-          <img src="/img/ok_check.png" />
-          <div style={{ display: "inline" }}>Mon text</div>
-        </Button>
+      <div className="App" style={{height:'95vh'}}>
+        <FlexHLayout>
+          <div className="navbar">top</div>
+          <FlexWLayout>
+            <div className="left">left</div>
+            <div className="right">right</div>
+          </FlexWLayout>
+          <div className="footer">bottom</div>
+        </FlexHLayout>
       </div>
     );
   }
