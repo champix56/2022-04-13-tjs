@@ -4,7 +4,10 @@
   justify-content: space-evenly;
   overflow-y: auto;
 }
-.ThumbnailLayout svg {
+.ThumbnailLayout a {
   max-width: 25vw;
   max-height: 200px;
+}
+.ThumbnailLayout a > svg {
+  width: 100%;
 }
