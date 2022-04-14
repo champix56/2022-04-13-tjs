@@ -5,6 +5,7 @@ import Navbar from "./components/ui/Navbar/Navbar";
 import "./App.css";
 import MemeViewer from "./components/ui/MemeViewer/MemeViewer";
 import MemeForm from "./components/functionnal/MemeForm/MemeForm";
+import {store} from './store/store'
 class App extends Component {
   constructor() {
     super();
@@ -21,25 +22,17 @@ class App extends Component {
         underline: true,
         color: "#ACBE0F",
       },
-      images: [
-        {
-          id: 0,
-          url: "futurama_slurm.jpg",
-          w: 600,
-          h: 315,
-          name: "futurama slurm",
-        },
-        {
-          id: 1,
-          url: "futurama_matrix.webp",
-          w: 1280,
-          h: 720,
-          name: "futurama matrix",
-        }
-      ],
+      images: [],
     };
   }
+  componentDidMount(){
+    this.setState({images:store.getState().images})
+    store.subscribe(()=>{
+      this.setState({images:store.getState().images})
+    })
+  }
   render() {
+    console.log(store)
     return (
       <div className="App" style={{ height: "95vh" }}>
         <FlexHLayout>
