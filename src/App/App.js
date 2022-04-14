@@ -5,34 +5,24 @@ import Navbar from "./components/ui/Navbar/Navbar";
 import "./App.css";
 import MemeViewer from "./components/ui/MemeViewer/MemeViewer";
 import MemeForm from "./components/functionnal/MemeForm/MemeForm";
-import {store} from './store/store'
+import {ACTIONS_CURRENT, store} from './store/store'
+import { DummyMeme } from "./interfaces/common";
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      current: {
-        titre: "title",
-        imageId: 0,
-        text: "React is fun",
-        x: 20,
-        y: 20,
-        fontSize: 20,
-        fontWeight: 900,
-        italic: true,
-        underline: true,
-        color: "#ACBE0F",
-      },
+      current: DummyMeme,
       images: [],
     };
   }
   componentDidMount(){
-    this.setState({images:store.getState().ressources.images})
+    this.setState({images:store.getState().ressources.images, current:store.getState().current})
     store.subscribe(()=>{
-      this.setState({images:store.getState().ressources.images})
+      this.setState({images:store.getState().ressources.images,current:store.getState().current})
     })
   }
   render() {
-    console.log(store)
+    // console.log(store)
     return (
       <div className="App" style={{ height: "95vh" }}>
         <FlexHLayout>
@@ -48,7 +38,7 @@ class App extends Component {
               meme={this.state.current}
               images={this.state.images}
               onFormValuesChanged={(newMeme) => {
-                this.setState({ current: newMeme });
+                store.dispatch({type:ACTIONS_CURRENT.UPDATE_CURRENT,value:newMeme})
               }}
             />
           </FlexWLayout>
