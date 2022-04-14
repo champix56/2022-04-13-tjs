@@ -13,10 +13,15 @@ const MemeForm= (props) => {
         <h2>Image</h2>
         <select>
           <option value="-1">Aucune</option>
+          {
+            props.images.map((elem,index)=>{
+                return <option key={`select-${index}`} value={elem.id}>{elem.name}</option>
+            })
+          }
         </select>
         <hr />
         <h2>text</h2>
-        <input type="text"  />
+        <input type="text"  /> 
         <div className={styles.half}>
           <div>
             <label htmlFor="f_x">x:</label>
