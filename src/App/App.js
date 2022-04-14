@@ -10,7 +10,7 @@ class App extends Component {
     super();
     this.state = {
       current: {
-        name: "title",
+        titre: "title",
         imageId: 0,
         text: "React is fun",
         x: 20,
@@ -38,7 +38,12 @@ class App extends Component {
         <FlexHLayout>
           <Navbar />
           <FlexWLayout>
-            <MemeViewer meme={this.state.current} image={undefined} />
+            <MemeViewer
+              meme={this.state.current}
+              image={this.state.images.find((img) => {
+                return img.id === this.state.current.imageId;
+              })}
+            />
             <MemeForm meme={this.state.current} images={this.state.images} />
           </FlexWLayout>
           <div className="footer" style={{ textAlign: "center" }}>
