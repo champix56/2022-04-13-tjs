@@ -14,5 +14,33 @@
       "h": 720,
       "name": "futurama matrix"
     }
+  ],
+  "memes": [
+    {
+      "id": 0,
+      "titre": "title",
+      "imageId": 0,
+      "text": "React is fun",
+      "x": 20,
+      "y": 20,
+      "fontSize": 20,
+      "fontWeight": 900,
+      "italic": true,
+      "underline": true,
+      "color": "#ACBE0F"
+    },
+    {
+      "id": 1,
+      "titre": "title2",
+      "imageId": 1,
+      "text": "React is super fun",
+      "x": 20,
+      "y": 20,
+      "fontSize": 20,
+      "fontWeight": 900,
+      "italic": true,
+      "underline": true,
+      "color": "#ACBE0F"
+    }
   ]
 }
