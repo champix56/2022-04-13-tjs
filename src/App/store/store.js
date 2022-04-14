@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-const REST_ADR_BASE="http://localhost:7956"
+const REST_ADR_BASE = "http://localhost:7956";
 const initialState = {
   images: [],
 };
@@ -17,19 +17,19 @@ function ressourcesReducer(state = initialState, action) {
     case "INIT_RESSOURCES":
       // requete async avec resolution d'execution de tache une fois achevée
       fetch(`${REST_ADR_BASE}/images`)
-        .then(f=>f.json())
-        .then(arr=>{
-          store.dispatch({type:ACTIONS_RESSOURCES.ADD_IMAGES,values:arr})
+        .then((f) => f.json())
+        .then((arr) => {
+          store.dispatch({ type: ACTIONS_RESSOURCES.ADD_IMAGES, values: arr });
           return arr;
-        })
-        //retour de l'etat non touché car action async
+        });
+      //retour de l'etat non touché car action async
       return state;
     default:
       return state;
   }
 }
 export const store = createStore(ressourcesReducer);
-store.dispatch({type:"INIT_RESSOURCES"});
+store.dispatch({ type: "INIT_RESSOURCES" });
 store.subscribe(() => {
   console.log(store.getState());
 });
