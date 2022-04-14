@@ -22,4 +22,4 @@ TemplateName.defaultProps={
 };
 
 
-export default functionComponent;
+export default TemplateName;
