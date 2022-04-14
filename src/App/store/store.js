@@ -1,4 +1,4 @@
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
 import { DummyMeme } from "../interfaces/common";
 const REST_ADR_BASE = "http://localhost:7956";
 const initialState = {
@@ -37,12 +37,13 @@ const currentInitialState = DummyMeme;
 function currentReducer(state = currentInitialState, action) {
   switch (action.type) {
     case ACTIONS_CURRENT.UPDATE_CURRENT:
-      return {...action.value}
+      return { ...action.value };
     default:
       return state;
   }
 }
-export const store = createStore(ressourcesReducer);
+const reducersCombined=combineReducers({ressources: ressourcesReducer,current:currentReducer})
+export const store = createStore(reducersCombined);
 store.dispatch({ type: "INIT_RESSOURCES" });
 store.subscribe(() => {
   console.log(store.getState());

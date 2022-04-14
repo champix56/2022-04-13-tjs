@@ -26,9 +26,9 @@ class App extends Component {
     };
   }
   componentDidMount(){
-    this.setState({images:store.getState().images})
+    this.setState({images:store.getState().ressources.images})
     store.subscribe(()=>{
-      this.setState({images:store.getState().images})
+      this.setState({images:store.getState().ressources.images})
     })
   }
   render() {
