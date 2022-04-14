@@ -14,9 +14,7 @@ const MemeForm= (props) => {
         <select>
           <option value="-1">Aucune</option>
           {
-            props.images.map((elem,index)=>{
-                return <option key={`select-${index}`} value={elem.id}>{elem.name}</option>
-            })
+            props.images.map((elem,index)=><option key={`select-${index}`} value={elem.id}>{elem.name}</option>)
           }
         </select>
         <hr />
