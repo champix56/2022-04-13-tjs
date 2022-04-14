@@ -8,7 +8,7 @@ const Button = (props) => {
  
   return (
     <button
-      className={!isClicked? styles.Button:styles.Button +' '+styles.clicked}
+      className={`${styles.Button}${!isClicked?'':' '+styles.clicked}`}
       style={{ backgroundColor: props.bgColor, color: props.color, ...props.style}}
       onClick={(evt) => {
         setIsClicked(true)
