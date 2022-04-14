@@ -7,7 +7,7 @@ import MemeViewer from "./components/ui/MemeViewer/MemeViewer";
 import MemeForm from "./components/functionnal/MemeForm/MemeForm";
 import { ACTIONS_CURRENT, store } from "./store/store";
 import { DummyMeme } from "./interfaces/common";
-import ThumbnailLayout from "./components/layout/ThumbnailLayout/ThumbnailLayout";
+import MemeThumbnail from "./components/functionnal/MemeThumbnail/MemeThumbnail";
 class App extends Component {
   constructor() {
     super();
@@ -35,15 +35,7 @@ class App extends Component {
     // console.log(store)
     return (
       <>
-        <ThumbnailLayout>
-          {this.state.memes.map((e, i) => (
-            <MemeViewer
-              key={i}
-              meme={e}
-              image={this.state.images.find((img) => img.id === e.imageId)}
-            />
-          ))}
-        </ThumbnailLayout>
+        <MemeThumbnail memes={this.state.memes} images={this.state.images}/>
         <div className="App" style={{ height: "95vh" }}>
           <FlexHLayout>
             <Navbar />
