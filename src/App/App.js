@@ -13,7 +13,7 @@ class App extends Component {
             <div className="left">left</div>
             <div className="right">right</div>
           </FlexWLayout>
-          <div className="footer">bottom</div>
+          <div className="footer" style={{textAlign:'center'}}>Copyright &copy; DESORBAIX</div>
         </FlexHLayout>
       </div>
     );
