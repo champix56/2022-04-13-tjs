@@ -1,4 +1,5 @@
 import { createStore } from "redux";
+import { DummyMeme } from "../interfaces/common";
 const REST_ADR_BASE = "http://localhost:7956";
 const initialState = {
   images: [],
@@ -24,6 +25,19 @@ function ressourcesReducer(state = initialState, action) {
         });
       //retour de l'etat non touché car action async
       return state;
+    default:
+      return state;
+  }
+}
+// section de gestion de l'etat du meme courrant independant des ressources
+export const ACTIONS_CURRENT = Object.freeze({
+  UPDATE_CURRENT: "UPDATE_CURRENT",
+});
+const currentInitialState = DummyMeme;
+function currentReducer(state = currentInitialState, action) {
+  switch (action.type) {
+    case ACTIONS_CURRENT.UPDATE_CURRENT:
+      return {...action.value}
     default:
       return state;
   }
