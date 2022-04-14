@@ -19,7 +19,10 @@ const MemeForm= (props) => {
         </select>
         <hr />
         <h2>text</h2>
-        <input type="text"  /> 
+        <input type="text" value={props.meme.text} onChange={(evt)=>{
+            console.log(evt.target.value);
+            props.onFormValuesChanged({...props.meme,text:evt.target.value})
+        }}  /> 
         <div className={styles.half}>
           <div>
             <label htmlFor="f_x">x:</label>

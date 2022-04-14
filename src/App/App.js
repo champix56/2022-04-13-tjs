@@ -58,7 +58,13 @@ class App extends Component {
                 return img.id === this.state.current.imageId;
               })}
             />
-            <MemeForm meme={this.state.current} images={this.state.images} />
+            <MemeForm
+              meme={this.state.current}
+              images={this.state.images}
+              onFormValuesChanged={(newMeme) => {
+                this.setState({ current: newMeme });
+              }}
+            />
           </FlexWLayout>
           <div className="footer" style={{ textAlign: "center" }}>
             Copyright &copy; DESORBAIX
