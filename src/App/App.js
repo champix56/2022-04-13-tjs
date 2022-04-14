@@ -31,18 +31,11 @@ class App extends Component {
         },
         {
           id: 1,
-          url: "futurama_slurm.jpg",
-          w: 600,
-          h: 315,
-          name: "futurama slurm2",
-        },
-        {
-          id: 2,
-          url: "futurama_slurm.jpg",
-          w: 600,
-          h: 315,
-          name: "futurama slurm3",
-        },
+          url: "futurama_matrix.webp",
+          w: 1280,
+          h: 720,
+          name: "futurama matrix",
+        }
       ],
     };
   }
