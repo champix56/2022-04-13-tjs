@@ -1,0 +1,10 @@
+.ThumbnailLayout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  overflow-y: auto;
+}
+.ThumbnailLayout svg {
+  max-width: 25vw;
+  max-height: 200px;
+}
