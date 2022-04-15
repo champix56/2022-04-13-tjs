@@ -11,25 +11,6 @@ import MemeThumbnail from "./components/functionnal/MemeThumbnail/MemeThumbnail"
 import { Routes, Route } from "react-router-dom";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      images: [],
-      memes: [],
-    };
-  }
-  componentDidMount() {
-    this.setState({
-      images: store.getState().ressources.images,
-      memes: store.getState().ressources.memes,
-    });
-    store.subscribe(() => {
-      this.setState({
-        images: store.getState().ressources.images,
-        memes: store.getState().ressources.memes,
-      });
-    });
-  }
   render() {
     // console.log(store)
     return (
@@ -38,10 +19,7 @@ class App extends Component {
           <Navbar />
           <Routes>
             <Route path="/" element={<div>Home</div>}/>
-            <Route path="/thumbnail" element={<MemeThumbnail
-                memes={this.state.memes}
-                images={this.state.images}
-              />}/>
+            <Route path="/thumbnail" element={<MemeThumbnail/>}/>
             <Route path="/editor" element={
               <FlexWLayout>
                 <MemeViewer/>
