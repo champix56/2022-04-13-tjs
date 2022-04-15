@@ -4,7 +4,7 @@ import FlexWLayout from "./components/layout/FlexWLayout/FlexWLayout";
 import Navbar from "./components/ui/Navbar/Navbar";
 import "./App.css";
 import MemeViewer from "./components/ui/MemeViewer/MemeViewer";
-import MemeForm from "./components/functionnal/MemeForm/MemeForm";
+import MemeForm from "./components/functionnal/MemeFormWithConnect/MemeForm";
 import { ACTIONS_CURRENT, store } from "./store/store";
 import { DummyMeme } from "./interfaces/common";
 import MemeThumbnail from "./components/functionnal/MemeThumbnail/MemeThumbnail";
@@ -22,6 +22,15 @@ class App extends Component {
             <Route path="/thumbnail" element={<MemeThumbnail />} />
             <Route
               path="/editor"
+              element={
+                <FlexWLayout>
+                  <MemeViewer />
+                  <MemeForm />
+                </FlexWLayout>
+              }
+            />
+             <Route
+              path="/editor/:id"
               element={
                 <FlexWLayout>
                   <MemeViewer />
