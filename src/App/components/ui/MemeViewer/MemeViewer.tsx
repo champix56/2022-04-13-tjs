@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import style from "./MemeViewer.module.css";
 import { I_Image, I_Meme } from "../../../interfaces/common";
-
+import { connect } from "react-redux";
 
 interface I_MemeVieverProps {
   meme: I_Meme;
@@ -34,4 +34,15 @@ const MemeViewer: React.FC<I_MemeVieverProps> = (props) => {
     </svg>
   );
 };
-export default MemeViewer;
+export const unconnectedMemeViewer = MemeViewer;
+function mstp(sstate: any, ownprops: any) {
+  return {
+    meme: sstate.current,
+    image: sstate.ressources.images.find((i:I_Image)=>i.id===sstate.current.imageId),
+    ...ownprops,
+  };
+}
+function mdtp(dispatch: Function) {
+  return {};
+}
+export default connect(mstp, mdtp)(MemeViewer);
