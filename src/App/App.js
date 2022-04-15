@@ -18,13 +18,17 @@ class App extends Component {
         <FlexHLayout>
           <Navbar />
           <Routes>
-            <Route path="/" element={<div>Home</div>}/>
-            <Route path="/thumbnail" element={<MemeThumbnail/>}/>
-            <Route path="/editor" element={
-              <FlexWLayout>
-                <MemeViewer/>
-                <MemeForm/>
-              </FlexWLayout>}/>
+            <Route path="/" element={<div>Home</div>} />
+            <Route path="/thumbnail" element={<MemeThumbnail />} />
+            <Route
+              path="/editor"
+              element={
+                <FlexWLayout>
+                  <MemeViewer />
+                  <MemeForm />
+                </FlexWLayout>
+              }
+            />
           </Routes>
           <div className="footer" style={{ textAlign: "center" }}>
             Copyright &copy; DESORBAIX
