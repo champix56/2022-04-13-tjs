@@ -14,7 +14,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      current: DummyMeme,
       images: [],
       memes: [],
     };
@@ -22,13 +21,11 @@ class App extends Component {
   componentDidMount() {
     this.setState({
       images: store.getState().ressources.images,
-      current: store.getState().current,
       memes: store.getState().ressources.memes,
     });
     store.subscribe(() => {
       this.setState({
         images: store.getState().ressources.images,
-        current: store.getState().current,
         memes: store.getState().ressources.memes,
       });
     });
@@ -47,22 +44,8 @@ class App extends Component {
               />}/>
             <Route path="/editor" element={
               <FlexWLayout>
-                <MemeViewer
-                  meme={this.state.current}
-                  image={this.state.images.find((img) => {
-                    return img.id === this.state.current.imageId;
-                  })}
-                />
-                <MemeForm
-                  meme={this.state.current}
-                  images={this.state.images}
-                  onFormValuesChanged={(newMeme) => {
-                    store.dispatch({
-                      type: ACTIONS_CURRENT.UPDATE_CURRENT,
-                      value: newMeme,
-                    });
-                  }}
-                />
+                <MemeViewer/>
+                <MemeForm/>
               </FlexWLayout>}/>
           </Routes>
           <div className="footer" style={{ textAlign: "center" }}>
