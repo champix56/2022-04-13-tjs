@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import styles from "./MemeForm.module.css";
-
+import {connect} from 'react-redux'
 import Button from "../../ui/Button/Button";
+import { ACTIONS_CURRENT, store } from "../../../store/store";
 
 const MemeForm = (props) => {
   return (
@@ -150,4 +151,25 @@ const MemeForm = (props) => {
     </div>
   );
 };
-export default MemeForm;
+export const unconnectedMemeForm = MemeForm;
+
+function mapStateToProps(storeState,ownProps) {
+  return {
+    //props fournis par le parent 
+    ...ownProps,
+    images:storeState.ressources.images,
+    meme:storeState.current
+  }
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    onFormValuesChanged:(newMeme)=>{
+      dispatch({
+        type: ACTIONS_CURRENT.UPDATE_CURRENT,
+        value: newMeme,
+      });
+    }
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(MemeForm)
