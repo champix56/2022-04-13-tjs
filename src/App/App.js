@@ -8,6 +8,8 @@ import MemeForm from "./components/functionnal/MemeForm/MemeForm";
 import { ACTIONS_CURRENT, store } from "./store/store";
 import { DummyMeme } from "./interfaces/common";
 import MemeThumbnail from "./components/functionnal/MemeThumbnail/MemeThumbnail";
+import { Routes, Route } from "react-router-dom";
+
 class App extends Component {
   constructor() {
     super();
@@ -34,35 +36,40 @@ class App extends Component {
   render() {
     // console.log(store)
     return (
-      <>
-        <MemeThumbnail memes={this.state.memes} images={this.state.images}/>
-        <div className="App" style={{ height: "95vh" }}>
-          <FlexHLayout>
-            <Navbar />
-            <FlexWLayout>
-              <MemeViewer
-                meme={this.state.current}
-                image={this.state.images.find((img) => {
-                  return img.id === this.state.current.imageId;
-                })}
-              />
-              <MemeForm
-                meme={this.state.current}
+      <div className="App" style={{ height: "95vh" }}>
+        <FlexHLayout>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<div>Home</div>}/>
+            <Route path="/thumbnail" element={<MemeThumbnail
+                memes={this.state.memes}
                 images={this.state.images}
-                onFormValuesChanged={(newMeme) => {
-                  store.dispatch({
-                    type: ACTIONS_CURRENT.UPDATE_CURRENT,
-                    value: newMeme,
-                  });
-                }}
-              />
-            </FlexWLayout>
-            <div className="footer" style={{ textAlign: "center" }}>
-              Copyright &copy; DESORBAIX
-            </div>
-          </FlexHLayout>
-        </div>
-      </>
+              />}/>
+            <Route path="/editor" element={
+              <FlexWLayout>
+                <MemeViewer
+                  meme={this.state.current}
+                  image={this.state.images.find((img) => {
+                    return img.id === this.state.current.imageId;
+                  })}
+                />
+                <MemeForm
+                  meme={this.state.current}
+                  images={this.state.images}
+                  onFormValuesChanged={(newMeme) => {
+                    store.dispatch({
+                      type: ACTIONS_CURRENT.UPDATE_CURRENT,
+                      value: newMeme,
+                    });
+                  }}
+                />
+              </FlexWLayout>}/>
+          </Routes>
+          <div className="footer" style={{ textAlign: "center" }}>
+            Copyright &copy; DESORBAIX
+          </div>
+        </FlexHLayout>
+      </div>
     );
   }
 }
