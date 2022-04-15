@@ -3,8 +3,12 @@ import styles from "./MemeForm.module.css";
 import {connect} from 'react-redux'
 import Button from "../../ui/Button/Button";
 import { ACTIONS_CURRENT, store } from "../../../store/store";
+import { useParams, useMatch } from 'react-router-dom'
 
 const MemeForm = (props) => {
+  let routeParams=useParams();
+
+  console.log(routeParams);
   return (
     <div data-testid="MemeForm" className={styles.MemeForm}>
       <form>
